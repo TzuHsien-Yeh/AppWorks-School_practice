@@ -4,4 +4,15 @@ fun main(){
 
     val mageInstance = Mage("Diego")
     mageInstance.attack()
+
+    humanInstance.flagMana()
+    mageInstance.flagMana()
+}
+
+fun Human.flagMana(){
+    if (this is Mage){
+        println("$name has mana.")
+    } else {
+        println("$name is a normie.")
+    }
 }
