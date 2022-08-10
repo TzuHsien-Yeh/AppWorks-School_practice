@@ -1,0 +1,72 @@
+1. Try the statements below in REPL. Please answer that there are correct or not and
+explain the reasons.
+
+a. val id = 9527
+
+Correct.
+
+
+b. var number : Int = 5.6
+
+5.6 is a floating-point literal. 
+-> replace Int with Double
+
+
+c. var title = "Hello Kotlin!"
+
+Correct.
+
+
+d. val content : String = null
+
+The variable content is expected to be a non-null type String, which can not be null.
+-> make it nullable by adding a "?"  
+(i.e., val content : String? = null)
+
+
+e. val number : Double? = 556.6
+
+Correct.
+
+f. var list: List<String>? = listOf(null, null)
+
+The infered type of item in the list is non-null type String. 
+-> var list: List<String?> = listOf(null, null)
+
+
+g. var list: List<String?>? = listOf("Wayne", "Chen")
+
+Correct.
+
+
+h. list.size
+
+Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type List<String?>?
+-> check the size of the collection by list?.size (list can be null) or list!!.size (asserting that list is not null)
+
+
+i. list?.size
+
+Correct. 
+
+
+2. Read the code below, choose the correct answer and explain the reason.
+var message = "Hello and welcome to AppWorks School :)"
+when (message.length) {
+0 -> println("Aye!")
+in 1..39 -> println("Your grace.")
+in 40..56 -> println("My lord.")
+else -> println("You know nothing...")
+}
+
+It prints c. "Your grace." because the length of the message is 39. 
+
+
+3. 
+The correct array to the output is 
+d. val array = Array(6) { 1000.0.pow(it) }
+
+This creates an array of 6 items, each value is 1000.0 to the power of the index. (i.e., (1000.0)^[i] )
+Thus the first item (index = [0]) in the array would be 1000.0^0 = 1.
+The second item (index = [1]) would be 1000.0^1 = 1000.0.
+The third item (index = [2]) would be 1000.0^2 = 1000000.0, and so on. 
