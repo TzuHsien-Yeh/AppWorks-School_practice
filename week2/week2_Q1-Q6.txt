@@ -1,0 +1,77 @@
+1. What is Inheritance? Try to explain in Mandarin.
+
+    使物件 (object) 或類 (class) 繼承其他的物件或類，讓他們有相似的特徵/執行方式。
+
+
+2. How to split a string in Android? Explain your understanding, and even better to attach
+some sample code.
+
+    可用split() function來分割字串。在split的argument中傳入判定分割的字符，就可以將字串從該字符切割，分割完的字串部分會存為list。
+    例：
+        val str = "avocado + accent + awesome" 
+        val list = str.split(" + ")
+     
+        println(list)  // [avocado, accent, awesome]
+
+
+3. What kind of key-value pair collection do we use in Android? Attach a sample code that
+uses for-loop to print each key-value pair.
+
+    Kotlin使用map作為key-value pair collection來儲存對應鍵 (key) 的值 (value)，能夠透過有語意的鍵來操作資料。
+    例：
+
+        val mapOfPet = mapOf("dog" to 3, "cat" to 5, "gekko" to 2, "ant" to 9)
+        for(pet in mapOfPet){
+            println(pet)
+        }
+        
+        output:
+        dog=3
+        cat=5
+        gekko=2
+        ant=9
+        
+
+4. What’s the difference between ArrayList and LinkedList? Try to explain in Mandarin.
+    
+    ArrayList和LinkedList兩者都是單列集合中List interface的實現。
+
+    不同之處：
+        1. Data structure (資料結構):
+            
+            ArrayList
+                - 用陣列 (array) 來儲存元素。
+                - 由相同類型的元素（element）集合所組成。
+                - 一個 Array 會分配一塊連續的記憶體來儲存。
+                - 必須先知道整體資料大小來分配記憶體。
+            
+            LinkedList
+                - 用節點 (node)來記錄、表示、儲存資料，每個node中的pointer指向下一個node，藉此將多個node串連起來，並以NULL來代表Linked list的終點。需要額外的記憶體空間來儲存pointer。
+                - 各node的資料型態不必相同。
+                - 每個node放在不同記憶體位置，不會按線性的順序儲存資料，而是透過node之間的pointer來存取位置。
+                - 記憶體非連續，不需事先知道整體資料大小。
+
+        2. Indexing (查詢/獲取某個位置的item): 
+
+            ArrayList可透過array位置和元素索引(index)找到item，因此查詢較快。 (時間複雜度O(1))  
+
+            LinkedList需從頭或尾開始，依次序一個一個找，查詢慢。 (時間複雜度O(n)) (可先判斷要查找的元素距離頭近還是尾近，來決定從哪邊找。) 
+
+        3. Modifying (增刪item):
+
+            ArrayList如果要增刪的item不是最後一個item，則需要移動array中的所有元素。(時間複雜度O(n))
+            
+            LinkedList增刪只需要對所有與欲新增/刪除的node有pointer相連的node調整pointer。 (時間複雜度O(1))
+
+
+5. What are Value Type variables? List out the Value Type variables you know.
+    實值類型的變數其值實際存在，若要儲存一個新的實質類型的資料則必須定義其值。Value Type的特性是不能再被繼承，也不會有型別成員(type member)
+    相對的參考類型 (Reference Type)，指的是不需要實際值存在的類型，宣告一個新的類型時並不需要指定其值。
+
+    Value Type variables有String, Boolean, Int, Float, Double, Byte, Long, Short, List, Array。
+
+
+6. What’s the maximum value of Int? If you want to represent integers larger than the limit,
+what should you do instead of using int variables?
+
+Int的最大值為2,147,483,647 (2^31 - 1)。若超過Int的最大值則須用Long。
