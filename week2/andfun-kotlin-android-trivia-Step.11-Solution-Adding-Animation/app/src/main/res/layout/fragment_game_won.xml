@@ -40,6 +40,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/youWinImage" />
 
+        <Button
+            android:id="@+id/profileButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="PROFILE"
+            android:textColor="@color/youWinDark"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/nextMatchButton"
+            app:layout_constraintStart_toStartOf="@id/nextMatchButton"
+            app:layout_constraintTop_toBottomOf="@+id/nextMatchButton" />
+
         <ImageView
             android:id="@+id/youWinImage"
             android:layout_width="0dp"

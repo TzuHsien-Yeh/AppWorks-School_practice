@@ -46,6 +46,12 @@ class GameWonFragment : Fragment() {
             view.findNavController().navigate(
                     GameWonFragmentDirections.actionGameWonFragmentToGameFragment())
         }
+
+        binding.profileButton.setOnClickListener{view: View ->
+            view.findNavController().navigate(
+                GameWonFragmentDirections.actionGameWonFragmentToProfileFragment()
+            )
+        }
         setHasOptionsMenu(true)
         return binding.root
     }
