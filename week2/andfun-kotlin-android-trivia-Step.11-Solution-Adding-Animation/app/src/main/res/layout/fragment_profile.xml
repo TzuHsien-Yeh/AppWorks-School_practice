@@ -9,39 +9,44 @@
 
     <TextView
         android:id="@+id/Name"
+        style="@style/profileSubStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/name"
         android:textAlignment="center"
-        app:layout_constraintEnd_toStartOf="@id/guideline_midline"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintEnd_toStartOf="@+id/nickname"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="@id/guideline_start"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/nickname"
+        style="@style/profileSubStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/roboto_medium"
         android:text="@string/nickname"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/guideline_end"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@id/guideline_midline"
+        app:layout_constraintEnd_toEndOf="@id/guideline_end"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/Name"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/aboutme"
+        style="@style/profileSubStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/about_me"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/guideline_end"
         app:layout_constraintStart_toStartOf="@+id/guideline_start"
-        app:layout_constraintTop_toBottomOf="@id/myname"
-        app:layout_constraintBottom_toTopOf="@id/aboutme_content"/>
+        app:layout_constraintTop_toBottomOf="@id/myname" />
 
     <TextView
         android:id="@+id/myname"
@@ -49,18 +54,16 @@
         android:layout_height="wrap_content"
         android:text="@string/tzu_hsien_yeh"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/aboutme"
+        app:layout_constraintBaseline_toBaselineOf="@+id/mynickname"
         app:layout_constraintEnd_toEndOf="@+id/Name"
-        app:layout_constraintStart_toStartOf="@+id/Name"
-        app:layout_constraintTop_toBottomOf="@+id/Name" />
+        app:layout_constraintStart_toStartOf="@+id/Name" />
 
     <TextView
         android:id="@+id/mynickname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:text="@string/oo"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/aboutme"
         app:layout_constraintEnd_toEndOf="@+id/nickname"
         app:layout_constraintStart_toStartOf="@+id/nickname"
         app:layout_constraintTop_toBottomOf="@+id/nickname" />
@@ -70,10 +73,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/bio_text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="@dimen/answer_text_size"
         app:layout_constraintEnd_toEndOf="@id/aboutme"
         app:layout_constraintStart_toStartOf="@+id/aboutme"
-        app:layout_constraintTop_toBottomOf="@+id/aboutme" />
+        app:layout_constraintTop_toBottomOf="@+id/aboutme"
+        android:lineSpacingExtra="6dp"/>
 
     <ImageView
         android:id="@+id/imageView"
