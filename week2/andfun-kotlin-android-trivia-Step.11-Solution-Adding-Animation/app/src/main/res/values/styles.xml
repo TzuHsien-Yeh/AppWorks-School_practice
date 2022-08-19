@@ -26,7 +26,7 @@
 
     <style name="profileSubStyle">
         <item name="android:layout_marginTop">@dimen/vertical_margin</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
+        <item name="android:textSize">20sp</item>
         <item name="android:background">@color/colorPrimaryDark</item>
         <item name="android:textColor">@color/white</item>
         <item name="fontFamily">@font/roboto_medium</item>
