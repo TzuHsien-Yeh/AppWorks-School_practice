@@ -1,0 +1,46 @@
+1. What is Encapsulation? Try to list out the benefits of Encapsulation.
+
+	Encapsulation是將資料包裝起來 (如透過private修飾)使其在class外僅供讀取，在class內可讀取與修改。
+	其優點是可以確保僅有該class可控制、改變所存的變數、避免被其他class誤用覆寫。這個做法也可以集中管理資料處理的邏輯，同時確保UI只單純做讀取、呈現資料的工作。
+
+2. Try to explain what enum is and why we use them.
+
+	Enum是一種類別 (class),用來列舉出內建的屬性與方法，可藉由名稱字串來取得對應的物件(選項)。
+	Enum class通常用在已知所有可能值時，可以透過Enum class名稱該列舉表中的選項。
+	Enum為常數分配預先定義的名稱，使程式更易讀。
+
+3. How to use enum in Kotlin? Attach a sample code that uses enum in Kotlin.
+
+	使用enum修飾在class前方，可以有一個或多個建構子 (constructer),
+	每個列舉常數都是class的單獨實例，並用逗號分隔。
+
+	例:
+	enum class DAYS(val isWeekend: Boolean = false){
+	    SUNDAY(true),
+	    MONDAY,
+	    TUESDAY,
+	    WEDNESDAY,
+	    THURSDAY,
+	    FRIDAY,
+	    SATURDAY(true);
+	   
+	    companion object{
+	        fun today(obj: DAYS): Boolean {
+	            return obj.name.compareTo("SATURDAY") == 0 || obj.name.compareTo("SUNDAY") == 0
+	        }
+	    }
+	}
+
+	fun main(){
+	    val today = DAYS.MONDAY;
+	    println("Is today a weekend: ${DAYS.today(today)}")
+	}
+	//Is today a weekend: false
+
+4. What are the differences between LinearLayout and RelativeLayout? Try to explain in detail.
+
+	LinearLayout為線性，可分為水平（horizontal）及垂直（vertical），一行只能有一個元件，因此元件只能由左至右 (水平) 或由上至下 (垂直) 排列。
+	RelativeLayout是透過相對位置來設定各個元件的位置，元件設定的位置可以是相對於整個RelativeLayout布局或者是相對於其他元件的位置。
+
+5. Try to explain the benefits of ConstraintLayout. Why should you use it?
+	使用ConstraintLayout可以在不同的螢幕大小與解析度上維持元件之間、元件在畫面中的相對位置與關係，避免因裝置差異而使大小、位置跑掉。
