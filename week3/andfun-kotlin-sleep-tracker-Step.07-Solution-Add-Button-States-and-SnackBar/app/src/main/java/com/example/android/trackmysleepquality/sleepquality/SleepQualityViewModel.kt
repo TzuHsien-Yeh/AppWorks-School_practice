@@ -47,8 +47,8 @@ class SleepQualityViewModel(
     val navigateToSleepTracker: LiveData<Boolean?>
         get() = _navigateToSleepTracker
 
+    // Two-way data binding (set text to this in xml file)
     val inputInfo = MutableLiveData<String>()
-
 
     /**
      * Call this immediately after navigating to [SleepTrackerFragment]
@@ -66,6 +66,8 @@ class SleepQualityViewModel(
         viewModelScope.launch {
                 val tonight = database.get(sleepNightKey) ?: return@launch
                 tonight.sleepQuality = quality
+
+                //assign value only if the input is not null
                 inputInfo.value?.let { tonight.information = it }
                 database.update(tonight)
 
