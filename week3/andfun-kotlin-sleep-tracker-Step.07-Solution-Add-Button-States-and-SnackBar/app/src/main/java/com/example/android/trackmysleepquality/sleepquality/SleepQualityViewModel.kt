@@ -16,6 +16,7 @@
 
 package com.example.android.trackmysleepquality.sleepquality
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,15 +33,6 @@ class SleepQualityViewModel(
         private val sleepNightKey: Long = 0L,
         val database: SleepDatabaseDao) : ViewModel() {
 
-
-    /**
-     */
-
-    /**
-     *
-     *
-     */
-
     /**
      * Variable that tells the fragment whether it should navigate to [SleepTrackerFragment].
      *
@@ -55,9 +47,8 @@ class SleepQualityViewModel(
     val navigateToSleepTracker: LiveData<Boolean?>
         get() = _navigateToSleepTracker
 
-    /**
-     *
-     */
+    val inputInfo = MutableLiveData<String>()
+
 
     /**
      * Call this immediately after navigating to [SleepTrackerFragment]
@@ -75,6 +66,7 @@ class SleepQualityViewModel(
         viewModelScope.launch {
                 val tonight = database.get(sleepNightKey) ?: return@launch
                 tonight.sleepQuality = quality
+                inputInfo.value?.let { tonight.information = it }
                 database.update(tonight)
 
             // Setting this state variable to true will alert the observer and trigger navigation.

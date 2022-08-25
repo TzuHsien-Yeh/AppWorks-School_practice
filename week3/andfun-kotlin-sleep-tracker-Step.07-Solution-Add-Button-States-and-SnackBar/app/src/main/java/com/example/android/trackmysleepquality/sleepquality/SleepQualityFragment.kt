@@ -51,7 +51,7 @@ class SleepQualityFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val arguments = SleepQualityFragmentArgs.fromBundle(arguments!!)
+        val arguments = SleepQualityFragmentArgs.fromBundle(requireArguments())
 
         // Create an instance of the ViewModel Factory.
         val dataSource = SleepDatabase.getInstance(application).sleepDatabaseDao
@@ -60,6 +60,7 @@ class SleepQualityFragment : Fragment() {
         // Get a reference to the ViewModel associated with this fragment.
         val sleepQualityViewModel =
                 ViewModelProvider(
+
                         this, viewModelFactory).get(SleepQualityViewModel::class.java)
 
         // To use the View Model with data binding, you have to explicitly
