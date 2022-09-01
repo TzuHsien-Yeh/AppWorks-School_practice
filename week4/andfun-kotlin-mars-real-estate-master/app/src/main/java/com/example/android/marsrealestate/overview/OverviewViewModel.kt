@@ -50,10 +50,10 @@ class OverviewViewModel : ViewModel() {
         get() = _properties
 
     // Internally, we use a MutableLiveData to handle navigation to the selected property
-    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty>()
+    private val _navigateToSelectedProperty = MutableLiveData<MarsProperty?>()
 
     // The external immutable LiveData for the navigation property
-    val navigateToSelectedProperty: LiveData<MarsProperty>
+    val navigateToSelectedProperty: LiveData<MarsProperty?>
         get() = _navigateToSelectedProperty
 
 
@@ -71,7 +71,7 @@ class OverviewViewModel : ViewModel() {
      * returns a coroutine Deferred, which we await to get the result of the transaction.
      * @param filter the [MarsApiFilter] that is sent as part of the web server request
      */
-     private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
+    private fun getMarsRealEstateProperties(filter: MarsApiFilter) {
         viewModelScope.launch {
             _status.value = MarsApiStatus.LOADING
             try {
