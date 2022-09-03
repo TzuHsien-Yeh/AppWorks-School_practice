@@ -17,6 +17,7 @@
 
 package com.example.android.marsrealestate
 
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -52,6 +53,27 @@ fun bindImage(imgView: ImageView, imgUrl: String?) {
                         .error(R.drawable.ic_broken_image))
                 .into(imgView)
     }
+}
+
+@BindingAdapter("propertyType")
+fun bindPropertyType(textView: TextView, property: MarsProperty){
+    val context = textView.context
+    textView.text = context.getString(R.string.display_type,
+        context.getString(
+            when(property.isRental) {
+                true -> R.string.type_rent
+                false -> R.string.type_sale
+            }))
+        }
+
+@BindingAdapter("price")
+fun bindPrice(textView: TextView, property: MarsProperty){
+    val context = textView.context
+    textView.text = context.getString(
+        when (property.isRental) {
+            true -> R.string.display_price_monthly_rental
+            false -> R.string.display_price
+            }, property.price)
 }
 
 /**
