@@ -1,0 +1,33 @@
+1. What is Polymorphism? Try to explain in Mandarin.
+	Polymorphism是指可透過單一常見方式使用不同的物件，也就是可以使用同一個操作介面來操作不同的物件實例，多型操作在物件導向上降低了對操作介面的依賴程度，進而增加程式架構的彈性與可維護性。
+	例如，建立藍牙喇叭與手機的連線時，手機只需要知道目前有可透過藍牙播放音訊的裝置。雖然可供選擇的藍牙喇叭有許多種，但手機不需要知道每一種喇叭的使用方式。
+
+2. Here are the 7 important lifecycle methods of an Activity:
+i. onCreate()
+ii. onStart()
+iii. onResume()
+iv. onPause()
+v. onStop()
+vi. onDestroy()
+Try to explain when they are called during the lifecycle of Activity.
+	i. onCreate() 是一個activity啟動時開啟，也是開啟應用程式時第一個進入的流程。
+	ii. onStart() 的工作是負責將 activity 頁面可視化，並將 UI 物件初始化以便讓使用者互動，onStart () 動作完成後，就會跳至 onResume() 方法。
+	iii. onResume() 開始後應用程式會處於持續執行的狀態，且一直與使用者互動著。
+	iv. onPause() 在resumed的狀態下使用者的焦點在頁面上持續互動，而使用者的焦點移轉 (例如彈出式訊息)，例如切換到另一個 Activity 頁面，或是開啟其它應用程式 (接通來電等)，此時就會執行onPause() 暫停的狀態。若焦點回到原本的activity，那麼就會再回到onResume()。
+	v. onStop() 是在離開應用程式畫面，回到主畫面或是開啟其他的App時執行的方法。例如，收到通話、焦點轉移後進入onPause(),若是選擇接起電話，開啟了電話App就會進入onStop() 階段。
+	vi. onDestroy()則是完全終止應用程式時觸發，除了使用者終止應用程式之外，Android 作業系統也可能會因為系統資源極度缺乏，自動終止在onStop或onPause狀態的應用程式。
+
+3. What is the Android Jetpack?
+	Android Jetpack是Google開發的一套完整的Library，兼容Kotlin並且使用androidx.*來撰寫，分成了四大部分: Foundation 基礎、Architecture 架構、Behavior 行為、UI 介面。Jetpack元件可單獨或組合使用。
+
+4. What is Coroutines? Why do we use it? Try to explain in Mandarin.
+	Coroutines是 Kotlin 的一個官方函式庫讓開發者以便利方式撰寫非同步程式設計模型、非封鎖 (Non-blocking) 及並行 (Concurrency) 的程式。
+
+	為何要使用?
+	若把所有的指令放在同一個thread中執行，那麼所有指令將會依序被執行。如果所有指令都放在更新UI的thread，例如network call的指令會花較久時間，就會讓UI的更新被卡住，直到等待前一個指令完成才能更新。因此應將這類指令放到另外一個thread。
+
+	使用multithreading來處理上述需要耗費更多時間的指令，例如network call, database operation或是複雜的計算，可以避免block UI thread的更新。
+
+	而coroutine不但可以做到所有Thread可以做到的，還有更多彈性，也更有效率。Coroutine是在Thread中執行，因此在一個Thread中可以啟用多個coroutines，且coroutine可以暫停、取消、或在設定的時機重新繼續執行工作。另外，coroutine可以轉換其執行的context，也就是說可以換到其他thread執行。
+
+	(或是可以將thread想像成「工廠」，而coroutine則像是「工人」，工人在工廠中工作，可以暫停其工作、也可以轉換到另一間工廠工作。)
